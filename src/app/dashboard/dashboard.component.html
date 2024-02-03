@@ -1,0 +1,52 @@
+<body>
+<button (click)="toggleAddPaintForm()">Add New Paint</button>
+<div *ngIf="showAddPaintForm">
+  <h2>Add New Paint</h2>
+  <form (ngSubmit)="addNewPaint()">
+    Color: <input type="color" name="color" [(ngModel)]="newPaint.color" required><br>
+    Stock: <input type="number" name="stock" [(ngModel)]="newPaint.stock" required><br>
+    Unit Price: <input type="number" name="unitPrice" [(ngModel)]="newPaint.unitPrice" required><br>
+    <button type="submit">Add Paint</button>
+  </form>
+</div>
+<h2>Products</h2>
+<table class="product-table">
+  <thead>
+  <tr>
+    <th>Color</th>
+    <th>Price</th>
+    <th>In Stock</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let paint of myPaints">
+    <td [bgColor]=paint.color >{{ "#" + paint.color }}</td>
+    <td>{{ paint.unitPrice }}</td>
+    <td>{{ paint.stock }}</td>
+  </tr>
+  </tbody>
+</table>
+<h2>Orders</h2>
+<table class="product-table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Costumer</th>
+    <th>Color</th>
+    <th>Amount</th>
+    <th>Shipped</th>
+    <th>Ship</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let order of myOrders">
+    <td>{{ order._id }}</td>
+    <td>{{ order.costumer }}</td>
+    <td [bgColor]=order.paint >{{ "#" + order.paint }}</td>
+    <td>{{ order.amount }}</td>
+    <td>{{ order.isShipped }}</td>
+    <td><button (click)="ship(order)">Ship</button></td>
+  </tr>
+  </tbody>
+</table>
+</body>

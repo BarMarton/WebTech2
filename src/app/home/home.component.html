@@ -1,0 +1,28 @@
+<body>
+<h2>Product Table</h2>
+<table class="product-table">
+  <thead>
+  <tr>
+    <th>Color</th>
+    <th>Price</th>
+    <th>In Stock</th>
+    <th>Buy</th>
+    <th>Amount</th>
+    <th>Total Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let paint of myPaints">
+    <td [bgColor]=paint.color >{{ "#" + paint.color }}</td>
+    <td>{{ paint.unitPrice }}</td>
+    <td>{{ paint.stock }}</td>
+    <td><button (click)="buyPaint(paint)">Buy</button></td>
+    <td>
+    <input type="number" class="amount-input" value="1" min="1" [attr.max]="paint.stock" [(ngModel)]="paint.quantity" (input)="calculateTotalPrice(paint)">
+    </td>
+    <td class="total-price">{{ paint.totalPrice }}</td>
+  </tr>
+  </tbody>
+</table>
+
+</body>

@@ -1,0 +1,30 @@
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.product-table th, .product-table td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.product-table th {
+  background-color: #f2f2f2;
+}
+
+
+.amount-input {
+  width: 50px;
+  padding: 5px;
+  text-align: center;
+}
+
+.total-price {
+  font-weight: bold;
+}
